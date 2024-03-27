@@ -1,0 +1,42 @@
+@use "@picocss/pico/scss/pico" with (
+  $semantic-root-element: "div#root",
+  $enable-semantic-container: true
+);
+
+//
+#{pico.$semantic-root-element} > header div.container :where(nav, li) {
+  ::before {
+    float: left;
+    content: "\200b";
+  }
+}
+
+// Adding header backgroud color.
+#{pico.$semantic-root-element} > header {
+  backdrop-filter: blur(1rem);
+  background-color: var(--pico-header-background);
+  transition: border-top-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+// Adding responsive layout support to header container.
+#{pico.$semantic-root-element} > header div.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Adding a separator before social links ul element.
+@media (min-width: 576px) {
+  #{pico.$semantic-root-element}
+    > header
+    div.container
+    nav
+    ul.social-links::before {
+    display: block;
+    height: 1.125rem;
+    margin-inline: var(--pico-nav-element-spacing-horizontal);
+    border-left: var(--pico-border-width) solid
+      var(--pico-form-element-border-color);
+    content: "";
+  }
+}
