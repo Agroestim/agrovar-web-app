@@ -1,0 +1,12 @@
+@use "@picocss/pico/scss/pico";
+@use "@picocss/pico/scss/colors";
+
+#{pico.$semantic-root-element}
+  > main.g-homepage
+  hgroup
+  p
+  abbr[title].color-accent {
+  font-weight: 500;
+  // color: #8cbf3f;
+  color: #{colors.$green-400};
+}

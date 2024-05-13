@@ -1,0 +1,19 @@
+@use "@picocss/pico/scss/pico" with (
+  $semantic-root-element: "div#root",
+  $enable-semantic-container: true,
+  $enable-classes: true
+);
+
+@use "./common";
+@use "./homepage";
+@use "./agrovar";
+@use "./errors";
+
+@use "./typography";
+
+@use "./layout";
+
+:root {
+  #{pico.$css-var-prefix}font-family: "Zilla Slab", sans-serif, system-ui;
+  #{pico.$css-var-prefix}font-weight: 400;
+}

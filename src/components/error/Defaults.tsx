@@ -3,9 +3,16 @@ export default function DefaultErrorComponent() {
     <>
       <main className="container">
         <hgroup>
-          <h1>This page doesnt exist.☹️</h1>
+          <i>Client Error</i>
+          <h1>El sitio que estas buscando no existe o dejo de funcionar.</h1>
           <hr />
-          <p>You should try another url instead.</p>
+          <p className="secondary">
+            Si el error persiste intenta las siguientes recomendaciones:
+          </p>
+          <ul>
+            <li>Intenta recargar la página o cerrar y abrir tu navegador.</li>
+            <li>Chequea tu conexión a</li>
+          </ul>
         </hgroup>
       </main>
     </>

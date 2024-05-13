@@ -1,0 +1,18 @@
+// Adding a separator before social links ul element.
+@media (min-width: 576px) {
+  nav ul.social-links::before {
+    display: block;
+    height: 1.125rem;
+    margin-inline: var(--pico-nav-element-spacing-horizontal);
+    border-left: var(--pico-border-width) solid
+      var(--pico-form-element-border-color);
+    content: "";
+  }
+}
+
+nav ul li > button[data-theme-switch] {
+  display: grid;
+
+  --pico-nav-link-spacing-vertical: 0.37rem;
+  --pico-nav-link-spacing-horizontal: 0.25rem;
+}

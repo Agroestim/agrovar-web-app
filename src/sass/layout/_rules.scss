@@ -1,0 +1,7 @@
+// When the viewport width is less then
+// 576px then hidde the content.
+.rule-hidde-before-sm {
+  @media (width < 576px) {
+    display: none;
+  }
+}

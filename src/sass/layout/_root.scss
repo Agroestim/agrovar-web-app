@@ -1,0 +1,8 @@
+@use "@picocss/pico/scss/pico";
+
+#{pico.$semantic-root-element} {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  min-height: 100vh;
+}

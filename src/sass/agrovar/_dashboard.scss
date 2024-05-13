@@ -1,0 +1,30 @@
+@use "@picocss/pico/scss/pico";
+
+#{pico.$semantic-root-element} > main.g-dashboard {
+  display: grid;
+  grid-template-areas:
+    "controls header preview"
+    "controls body preview"
+    "controls footer preview";
+  grid-template-columns: 10.5rem 2fr 1fr;
+  grid-template-rows: auto 1fr;
+
+  row-gap: 4rem;
+  column-gap: 4rem;
+
+  & hgroup#ga-dashboard-header {
+    grid-area: header;
+  }
+
+  & aside#ga-dashboard-controls {
+    grid-area: controls;
+  }
+
+  & div#ga-dashboard-body {
+    grid-area: body;
+  }
+
+  & aside#ga-dashboard-preview {
+    grid-area: preview;
+  }
+}
