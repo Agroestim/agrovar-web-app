@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export type AppWrapperProp = {
+export type Children = {
   children: ReactNode;
 };
