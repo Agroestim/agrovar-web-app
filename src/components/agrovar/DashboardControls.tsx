@@ -1,3 +1,6 @@
+import { WorkflowViewEnum } from "@type/context/workflow";
+import { ControlWorkflowViewButton } from "./DashboardControlButton";
+
 export function DashboardControlsComponent() {
   return (
     <>
@@ -5,17 +8,34 @@ export function DashboardControlsComponent() {
         <nav>
           <hgroup>
             <h4>Controles</h4>
-            <p>Parámetros de búsqueda</p>
           </hgroup>
           <hr />
+          <details>
+            <summary>Inicio</summary>
+            <ul>
+              <li>
+                <ControlWorkflowViewButton toView={WorkflowViewEnum.COVER_VIEW}>
+                  Portada
+                </ControlWorkflowViewButton>
+              </li>
+            </ul>
+          </details>
           <details>
             <summary>Variedades</summary>
             <ul>
               <li>
-                <button>Comparador de variedades</button>
+                <ControlWorkflowViewButton
+                  toView={WorkflowViewEnum.VARIETY_COMPARATION_VIEW}
+                >
+                  Comparador de variedades
+                </ControlWorkflowViewButton>
               </li>
               <li>
-                <button>Ranking de variedades</button>
+                <ControlWorkflowViewButton
+                  toView={WorkflowViewEnum.VARIETY_LOCATION_RANKING_VIEW}
+                >
+                  Ranking de variedades
+                </ControlWorkflowViewButton>
               </li>
             </ul>
           </details>
@@ -25,7 +45,9 @@ export function DashboardControlsComponent() {
             </summary>
             <ul>
               <li>
-                <button>Regresión Finlay-Wilkinson</button>
+                <ControlWorkflowViewButton toView={WorkflowViewEnum.COVER_VIEW}>
+                  Regresión Finlay-Wilkinson
+                </ControlWorkflowViewButton>
               </li>
             </ul>
           </details>

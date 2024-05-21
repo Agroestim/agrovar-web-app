@@ -1,6 +1,22 @@
 @use "@picocss/pico/scss/colors";
 
-span.loader {
+hgroup.loader {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+
+  & > *:not(hr) {
+    justify-self: center;
+  }
+
+  & > p {
+    color: var(--pico-secondary);
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+span.loading {
   width: 16px;
   height: 16px;
   border-radius: 50%;
