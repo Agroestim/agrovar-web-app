@@ -12,7 +12,7 @@ export enum WorkflowViewEnum {
 }
 
 export interface WorkflowContextType {
-  WorkflowView: WorkflowViewEnum;
+  view: WorkflowViewEnum;
 
-  WorkflowViewDispatcher: Dispatch<WorkflowContextReducerActionType>;
+  dispatch: Dispatch<WorkflowContextReducerActionType>;
 }

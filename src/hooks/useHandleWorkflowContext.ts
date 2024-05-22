@@ -9,7 +9,8 @@ type HandleWorkflowContextProp = {
 export function useHandleWorkflowContext({
   viewToUpdate,
 }: HandleWorkflowContextProp) {
-  const { WorkflowView, WorkflowViewDispatcher } = useContext(WorkflowContext);
+  const { view: WorkflowView, dispatch: WorkflowViewDispatcher } =
+    useContext(WorkflowContext);
 
   function HandleWorkflowContext(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();

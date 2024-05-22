@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { WorkflowContext } from "context/workflow";
 
 export function WorkflowViewController() {
-  const { WorkflowView } = useContext(WorkflowContext);
+  const { view: WorkflowView } = useContext(WorkflowContext);
 
   switch (WorkflowView) {
     case WorkflowViewEnum.COVER_VIEW: {

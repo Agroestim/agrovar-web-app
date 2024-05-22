@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client";
 import { LoaderComponent } from "@components/common/Loader";
-import { QUERY_VARIETIES_OPTIONS } from "graphql/preflightQueries";
+import { PREFLIGHT_OPTIONS_QUERY } from "graphql/preflight";
 import { VarietyCropVariantOption } from "./VarietyCropVariantOption";
 
 export function VarietyComparation() {
-  const { data, error, loading } = useQuery(QUERY_VARIETIES_OPTIONS);
+  const { data, error, loading } = useQuery(PREFLIGHT_OPTIONS_QUERY);
 
   if (loading) return <LoaderComponent></LoaderComponent>;
   if (error) return <h1>{error.message}</h1>;

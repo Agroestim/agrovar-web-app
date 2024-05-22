@@ -12,8 +12,8 @@ export function WorkflowContextProvider({ children }: Children) {
   return (
     <WorkflowContext.Provider
       value={{
-        WorkflowView: workflowContextState,
-        WorkflowViewDispatcher: workflowContextDispatch,
+        view: workflowContextState,
+        dispatch: workflowContextDispatch,
       }}
     >
       {children}

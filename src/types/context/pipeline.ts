@@ -2,6 +2,7 @@ import { PipelineContextReducerActionType } from "@type/store/PipelineContextRed
 import { Dispatch } from "react";
 
 export enum PipelineProcessEnum {
+  PREFLIGHT_HEARTBEAT,
   PREFLIGHT_MISC_TIPS,
   PREFLIGHT_OPTIONS,
 
@@ -9,6 +10,6 @@ export enum PipelineProcessEnum {
 }
 
 export interface PipelineContextType {
-  PipelineState: PipelineProcessEnum;
-  PipelineStateDispatch: Dispatch<PipelineContextReducerActionType>;
+  state: PipelineProcessEnum;
+  dipsatch: Dispatch<PipelineContextReducerActionType>;
 }
