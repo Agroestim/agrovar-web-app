@@ -1,19 +1,5 @@
-import { useHandleWorkflowContext } from "@hooks/useHandleWorkflowContext";
-import { WorkflowViewEnum } from "@type/context/workflow";
-import { ReactNode } from "react";
+import { Children } from "@type/components/Children";
 
-type ControllerProp = {
-  toView: WorkflowViewEnum;
-  children: ReactNode;
-};
-
-export function ControlWorkflowViewButton({
-  toView,
-  children,
-}: ControllerProp) {
-  const { HandleWorkflowContext } = useHandleWorkflowContext({
-    viewToUpdate: toView,
-  });
-
-  return <button onClick={HandleWorkflowContext}>{children}</button>;
+export function ControlWorkflowViewButton({ children }: Children) {
+  return <button>{children}</button>;
 }

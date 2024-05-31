@@ -1,5 +1,3 @@
-interface TableViewComponentProps {}
-
-export function TableViewComponent(props: TableViewComponentProps) {
+export function TableViewComponent() {
   return <></>;
 }

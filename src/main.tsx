@@ -17,9 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/">
             <HomePageComponent />
           </Route>
-          <Route path="/app">
+          <Router base="/app">
             <DashboardComponent />
-          </Route>
+          </Router>
           <Route path="*">
             <DefaultErrorComponent />
           </Route>
