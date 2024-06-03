@@ -1,4 +1,4 @@
-import { ControlWorkflowViewButton } from "./DashboardControlButton";
+import { DashboardControlButtons } from "./DashboardFlowButtons";
 
 export function DashboardControlsComponent() {
   return (
@@ -13,7 +13,7 @@ export function DashboardControlsComponent() {
             <summary>Inicio</summary>
             <ul>
               <li>
-                <ControlWorkflowViewButton>Portada</ControlWorkflowViewButton>
+                <DashboardControlButtons>Portada</DashboardControlButtons>
               </li>
             </ul>
           </details>
@@ -21,14 +21,14 @@ export function DashboardControlsComponent() {
             <summary>Variedades</summary>
             <ul>
               <li>
-                <ControlWorkflowViewButton>
+                <DashboardControlButtons>
                   Comparador de variedades
-                </ControlWorkflowViewButton>
+                </DashboardControlButtons>
               </li>
               <li>
-                <ControlWorkflowViewButton>
+                <DashboardControlButtons>
                   Ranking de variedades
-                </ControlWorkflowViewButton>
+                </DashboardControlButtons>
               </li>
             </ul>
           </details>
@@ -38,9 +38,9 @@ export function DashboardControlsComponent() {
             </summary>
             <ul>
               <li>
-                <ControlWorkflowViewButton>
+                <DashboardControlButtons>
                   Regresión Finlay-Wilkinson
-                </ControlWorkflowViewButton>
+                </DashboardControlButtons>
               </li>
             </ul>
           </details>

@@ -1,14 +1,16 @@
 import { useQuery } from "@apollo/client";
 import { PREFLIGHT_OPTIONS_QUERY } from "graphql/preflight";
-import { VarietyOption } from "./options/VarietyOption";
 import { LoaderComponent } from "@components/common/Loader";
 import { CampaignOptionComponent } from "./options/CampaignOptions";
+import { VarietyOption } from "./options/VarietyOption";
+import { useFormOnSubmitHandler } from "@hooks/useFormOnSubmitHandler";
 
 /**
  * This component represents the variety search formulary
  * used to search varieties for a post-comparison.
  */
 export function VarietyComparation() {
+  const { handleFormOnSubmit } = useFormOnSubmitHandler();
   const { data, error, loading } = useQuery(PREFLIGHT_OPTIONS_QUERY);
 
   if (loading) return <LoaderComponent />;
@@ -19,7 +21,7 @@ export function VarietyComparation() {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleFormOnSubmit}>
         <h1>Comparador de variedades</h1>
         <hr />
         <fieldset name="campaign-selector">

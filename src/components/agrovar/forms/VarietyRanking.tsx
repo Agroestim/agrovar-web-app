@@ -4,11 +4,13 @@ import { PREFLIGHT_OPTIONS_QUERY } from "graphql/preflight";
 import { LoaderComponent } from "@components/common/Loader";
 import { LocationOptionsComponent } from "./options/LocationOptions";
 import { VarietyOption } from "./options/VarietyOption";
+import { useFormOnSubmitHandler } from "@hooks/useFormOnSubmitHandler";
 
 /**
  *
  */
 export function VarietyRanking() {
+  const { handleFormOnSubmit } = useFormOnSubmitHandler();
   const { data, loading, error } = useQuery(PREFLIGHT_OPTIONS_QUERY);
 
   if (loading) return <LoaderComponent />;
@@ -17,7 +19,7 @@ export function VarietyRanking() {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleFormOnSubmit}>
         <h1>Ranking por localidad</h1>
         <hr />
 
