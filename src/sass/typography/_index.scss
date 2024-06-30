@@ -10,3 +10,8 @@
   // color: #8cbf3f;
   color: #{colors.$green-400};
 }
+
+// Disable the text selection for labels at the same level of the input.
+input ~ label {
+  user-select: none;
+}

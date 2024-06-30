@@ -1,4 +1,4 @@
-import Stack from "agrovar/providers/NavigationStack";
+import Stack from "modules/agrovar/providers/NavigationStack";
 
 export function TestStackNavigation() {
   return (

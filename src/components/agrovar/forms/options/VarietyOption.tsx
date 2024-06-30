@@ -1,7 +1,7 @@
-import { WorkflowOptionsPropType } from "@type/components/WorkflowOptionsPropType";
+import { VarietyOptionsType } from "@type/graphql/varietyOptions";
 
-export function VarietyOption({ data }: WorkflowOptionsPropType) {
-  return data.preflightOptions.varietyOptions?.map((entry) => {
+export function VarietyOption(options: { varieties: VarietyOptionsType }) {
+  return options.varieties.map((entry) => {
     return (
       <option key={entry.id} value={entry.id}>
         {entry.tradename} — {entry.variantName}

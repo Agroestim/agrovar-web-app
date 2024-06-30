@@ -1,21 +1,20 @@
-import { useQuery } from "@apollo/client";
-import { CampaignOptionComponent } from "./options/CampaignOptions";
-import { PREFLIGHT_OPTIONS_QUERY } from "graphql/preflight";
 import { LoaderComponent } from "@components/common/Loader";
-import { LocationOptionsComponent } from "./options/LocationOptions";
-import { VarietyOption } from "./options/VarietyOption";
-import { useFormOnSubmitHandler } from "@hooks/useFormOnSubmitHandler";
+import { useOnSubmitHandler } from "@hooks/useOnSubmitHandler";
+import { useDashboardWorkflowPreflightQuery } from "@hooks/graphql/usePreflightQuery";
 
 /**
  *
  */
 export function VarietyRanking() {
-  const { handleFormOnSubmit } = useFormOnSubmitHandler();
-  const { data, loading, error } = useQuery(PREFLIGHT_OPTIONS_QUERY);
+  const { handleFormOnSubmit } = useOnSubmitHandler();
+  const { data, loading, error } = useDashboardWorkflowPreflightQuery({
+    limit: 10,
+    cursor: "",
+  });
 
   if (loading) return <LoaderComponent />;
   if (error) return <h1>{error.message}</h1>;
-  if (!data) return;
+  if (!data) return <h1>No data was returned</h1>;
 
   return (
     <>
@@ -32,7 +31,6 @@ export function VarietyRanking() {
             defaultValue={["default-value"]}
           >
             <option value="default-value">Select an option</option>
-            <CampaignOptionComponent data={data} />
           </select>
         </fieldset>
 
@@ -45,7 +43,6 @@ export function VarietyRanking() {
             defaultValue={["default-value"]}
           >
             <option value="default-value">Select an option</option>
-            <LocationOptionsComponent data={data} />
           </select>
         </fieldset>
 
@@ -58,7 +55,6 @@ export function VarietyRanking() {
             multiple
           >
             <option value="default-value">Select an option</option>
-            <VarietyOption data={data} />
           </select>
         </fieldset>
 

@@ -1,8 +1,4 @@
-import usePreventDetailsClosure from "@hooks/usePreventDetailsClosure";
-
 export function HomepageTableOfContentsComponent() {
-  usePreventDetailsClosure();
-
   return (
     <aside id="ga-table-of-contents">
       <nav>

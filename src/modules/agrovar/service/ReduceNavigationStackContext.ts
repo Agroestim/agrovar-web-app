@@ -1,8 +1,8 @@
-import { NavigationStackContextType } from "agrovar/types/NavigationStackContextTypes";
+import { NavigationStackContextType } from "modules/agrovar/types/NavigationStackContextTypes";
 import {
   NavigationStackReducerAction,
-  ReducerActionNavigationStackType,
-} from "agrovar/types/ReduceNavigationContextTypes";
+  ReducerActionNavigationStackType
+} from "modules/agrovar/types/ReduceNavigationContextTypes";
 
 /**
  * A function that handle a dispatch event and returns a
@@ -23,8 +23,8 @@ export function reduceNavigationStackContext(
     case NavigationStackReducerAction.REMOVE_ITEM:
       return {
         stack: [...prevState.stack].filter(
-          (value) => value.name != action.payload.stack.name
-        ),
+          value => value.name != action.payload.stack.name
+        )
       };
 
     default:

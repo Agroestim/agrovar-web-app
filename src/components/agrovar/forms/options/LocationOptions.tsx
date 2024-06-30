@@ -1,7 +1,9 @@
-import { WorkflowOptionsPropType } from "@type/components/WorkflowOptionsPropType";
+import { LocationOptionsType } from "@type/graphql/locationOptions";
 
-export function LocationOptionsComponent({ data }: WorkflowOptionsPropType) {
-  return data.preflightOptions.locationOptions?.map((entry) => {
+export function LocationOptionsComponent(options: {
+  locations: LocationOptionsType;
+}) {
+  return options.locations.map((entry) => {
     return (
       <option key={entry.id} value={entry.id}>
         {entry.id} — {entry.regionName}

@@ -1,4 +1,5 @@
-import { DashboardControlButtons } from "./DashboardFlowButtons";
+import { DashboardOperationsType } from "@type/contexts/DashboardContextTypes";
+import { UpdateDashboardProcessButton } from "./flow/UpdateDashboardProcessButton";
 
 export function DashboardControlsComponent() {
   return (
@@ -13,7 +14,11 @@ export function DashboardControlsComponent() {
             <summary>Inicio</summary>
             <ul>
               <li>
-                <DashboardControlButtons>Portada</DashboardControlButtons>
+                <UpdateDashboardProcessButton
+                  operation={DashboardOperationsType.COVER_OP}
+                >
+                  Portada
+                </UpdateDashboardProcessButton>
               </li>
             </ul>
           </details>
@@ -21,14 +26,18 @@ export function DashboardControlsComponent() {
             <summary>Variedades</summary>
             <ul>
               <li>
-                <DashboardControlButtons>
+                <UpdateDashboardProcessButton
+                  operation={DashboardOperationsType.VARIETY_COMPARATION_OP}
+                >
                   Comparador de variedades
-                </DashboardControlButtons>
+                </UpdateDashboardProcessButton>
               </li>
               <li>
-                <DashboardControlButtons>
+                <UpdateDashboardProcessButton
+                  operation={DashboardOperationsType.LOCATION_RANKING_OP}
+                >
                   Ranking de variedades
-                </DashboardControlButtons>
+                </UpdateDashboardProcessButton>
               </li>
             </ul>
           </details>
@@ -38,9 +47,11 @@ export function DashboardControlsComponent() {
             </summary>
             <ul>
               <li>
-                <DashboardControlButtons>
+                <UpdateDashboardProcessButton
+                  operation={DashboardOperationsType.ERROR_OP}
+                >
                   Regresión Finlay-Wilkinson
-                </DashboardControlButtons>
+                </UpdateDashboardProcessButton>
               </li>
             </ul>
           </details>

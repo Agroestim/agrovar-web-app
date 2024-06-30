@@ -1,3 +1,19 @@
+import { UserWorkflowContext } from "@context/UserWorkflowContext";
+import { useContext } from "react";
+import { DisplayCurrentDashboardView } from "./flow/RenderDashboardProcess";
+import { DashboardOperationsType } from "@type/contexts/DashboardContextTypes";
+
 export function DashboardBodyComponent() {
-  return <div id="ga-dashboard-body"></div>;
+  const { state } = useContext(UserWorkflowContext);
+
+  const currentViewState =
+    state.stack.at(-1)?.operation ?? DashboardOperationsType.COVER_OP;
+
+  return (
+    <>
+      <div className="ga-dashboard-body">
+        <DisplayCurrentDashboardView state={currentViewState} />
+      </div>
+    </>
+  );
 }

@@ -1,78 +1,137 @@
-import { useQuery } from "@apollo/client";
-import { PREFLIGHT_OPTIONS_QUERY } from "graphql/preflight";
 import { LoaderComponent } from "@components/common/Loader";
-import { CampaignOptionComponent } from "./options/CampaignOptions";
-import { VarietyOption } from "./options/VarietyOption";
-import { useFormOnSubmitHandler } from "@hooks/useFormOnSubmitHandler";
+import { useOnSubmitHandler } from "@hooks/useOnSubmitHandler";
+import { useDashboardWorkflowPreflightQuery } from "@hooks/graphql/usePreflightQuery";
+import { useOnChangeHandler } from "@hooks/useOnChangeHandler";
+import { useOnSelectChangeHandler } from "@hooks/useOnSelectChangeHandler";
+
+enum ComparisonModeType {
+  COMPARE_BY_VARIETY = "operation-mode-by-variety",
+  COMPARE_BY_LOCATION = "operation-mode-by-location",
+}
 
 /**
  * This component represents the variety search formulary
  * used to search varieties for a post-comparison.
  */
 export function VarietyComparation() {
-  const { handleFormOnSubmit } = useFormOnSubmitHandler();
-  const { data, error, loading } = useQuery(PREFLIGHT_OPTIONS_QUERY);
+  const { selectedOptions, handleSelectOnChange } = useOnSelectChangeHandler();
+  const { isChecked, handleOnChange } = useOnChangeHandler({
+    on: ComparisonModeType.COMPARE_BY_VARIETY,
+    off: ComparisonModeType.COMPARE_BY_LOCATION,
+  });
+
+  const { handleFormOnSubmit } = useOnSubmitHandler();
+  const { data, loading, error } = useDashboardWorkflowPreflightQuery({
+    limit: 10,
+    cursor: "",
+  });
 
   if (loading) return <LoaderComponent />;
-
   if (error) return <h1>{error.message}</h1>;
+  if (!data) return <h1>No data was returned</h1>;
 
-  if (!data) return;
+  const { varietyOptions, campaignOptions, locationOptions } =
+    data.preflightOptions;
 
   return (
     <>
       <form onSubmit={handleFormOnSubmit}>
         <h1>Comparador de variedades</h1>
         <hr />
-        <fieldset name="campaign-selector">
+
+        <fieldset name="campaign-fielset">
           <legend>Campaña</legend>
-          <select
-            name="campaign-selector"
-            id="campaign-selector-element"
-            defaultValue={["default-value"]}
-            multiple
-            required
-          >
-            <option value="default-value">Select an option</option>
-            <CampaignOptionComponent data={data} />
+
+          <select name="campaing-selector" id="campaign-selector" required>
+            <option value={0} key={0}>
+              {"Seleccione una opción"}
+            </option>
+
+            {campaignOptions?.options.map((entry) => {
+              return (
+                <option key={entry.id} value={entry.id}>
+                  {entry.locationOrigin} {entry.dateOrigin} {entry.reference} —{" "}
+                  {entry.cropVariant}
+                </option>
+              );
+            })}
           </select>
         </fieldset>
 
-        <fieldset name="variety-selector">
+        <fieldset name="variety-fieldset">
           <legend>Variedades</legend>
+
           <select
             name="variety-selector"
-            id="variety-selector-element"
-            defaultValue={["default-value"]}
-            multiple
+            id="variety-selector"
             required
+            multiple
+            value={selectedOptions}
+            onChange={handleSelectOnChange}
           >
-            <option value="default-option">Select an option</option>
-            <VarietyOption data={data} />
+            <option value={0} key={0}>
+              {"Seleccione una opción"}
+            </option>
+
+            {varietyOptions?.options.map((entry) => {
+              return (
+                <option key={entry.id} value={entry.id}>
+                  {entry.tradename} {entry.variantName}
+                </option>
+              );
+            })}
           </select>
         </fieldset>
 
-        <fieldset name="comparation-mode-selector">
-          <legend>Modo de comparación</legend>
-          <label>
-            <input
-              type="checkbox"
-              name="comparation-mode-by-location"
-              id="comparation-mode-location-check"
-            />{" "}
-            Por localidad
+        <fieldset name="operation-mode-fieldset">
+          <legend>Modo de operación</legend>
+
+          <input
+            type="checkbox"
+            name="operation-mode-by-variety"
+            id="operation-mode-by-variety"
+            onChange={handleOnChange}
+            checked={isChecked("operation-mode-by-variety")}
+          />
+          <label htmlFor="operation-mode-by-variety">
+            Filtrar por variedad
           </label>
 
-          <label>
-            <input
-              type="checkbox"
-              name="comparation-mode-by-variety"
-              id="comparation-mode-location-check"
-            />{" "}
-            Por variedad
+          <input
+            type="checkbox"
+            name="operation-mode-by-location"
+            id="operation-mode-by-location"
+            onChange={handleOnChange}
+            checked={isChecked("operation-mode-by-location")}
+          />
+          <label htmlFor="operation-mode-by-location">
+            Filtrar por localidad
           </label>
         </fieldset>
 
+        {isChecked("operation-mode-by-location") ? (
+          <fieldset name="location-fieldset">
+            <legend>Localidad</legend>
+
+            <select 
+              name="location-selector" 
+              id="location-selector" 
+              required 
+              multiple
+            >
+              <option value={0} key={0}>
+                {"Seleccione una opción"}
+              </option>
+              {locationOptions?.options.map((entry) => {
+                return (
+                  <option key={entry.id} value={entry.id}>
+                    {entry.regionName}
+                  </option>
+                );
+              })}
+            </select>
+          </fieldset>
+        ) : null}
         <fieldset name="form-selector" className="grid">
           <input type="submit" value="Enviar" />
           <input type="reset" value="Reestablecer" />

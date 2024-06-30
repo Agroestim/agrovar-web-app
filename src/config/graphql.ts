@@ -1,7 +1,7 @@
 /**
  * This constant must not be modified because may produce problems :).
  */
-export const GRAPHQL_SERVER_URI: string = "http://home.arpa:8000/api/v1/";
+export const GRAPHQL_SERVER_URI: string = "http://agrovar.home.arpa/api/v1/";
 
 export const CLIENT_NAME: string = "agrovar-web-app";
 
