@@ -1,19 +1,21 @@
+import { Link } from "wouter";
+
 export function HomepageDocsComponent() {
   return (
     <aside id="ga-menu">
       <nav>
         <details open>
-          <summary>Introduccón</summary>
+          <summary>{"Introduccion"}</summary>
           <ul>
             <li>
-              <a href="#" className="secondary">
-                asd
-              </a>
+              <Link href="/" className="secondary">
+                {"Uso de la aplicación"}
+              </Link>
             </li>
             <li>
-              <a href="/" className="secondary">
-                asd
-              </a>
+              <Link href="/" className="secondary">
+                {"Reportar problema"}
+              </Link>
             </li>
           </ul>
         </details>

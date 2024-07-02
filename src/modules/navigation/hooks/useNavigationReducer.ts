@@ -1,6 +1,6 @@
-import { reduceNavigationStackContext } from "modules/agrovar/service/ReduceNavigationStackContext";
-import { NavigationStackReducerType } from "modules/agrovar/types/ReduceNavigationContextTypes";
 import { useReducer } from "react";
+import { NavigationStackReducerType } from "../types/ReduceNavigationContextTypes";
+import { reduceNavigationStackContext } from "modules/navigation/service/ReduceNavigationStackContext";
 
 export function useNavigationReducer() {
   const [state, dispatch] = useReducer<

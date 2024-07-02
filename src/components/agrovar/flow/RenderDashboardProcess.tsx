@@ -8,6 +8,9 @@ import { DashboardResultsComponent } from "../DashboardResults";
 export function DisplayCurrentDashboardView({
   state,
 }: DisplayCurrentDashboardViewPropType) {
+
+  console.log(state)
+
   switch (state) {
     case DashboardOperationsType.LOCATION_RANKING_OP:
       return <VarietyRanking></VarietyRanking>;

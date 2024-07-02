@@ -1,8 +1,8 @@
-import { NavigationStackContextType } from "modules/agrovar/types/NavigationStackContextTypes";
+import { NavigationStackContextType } from "../types/NavigationStackContextTypes";
 import {
-  NavigationStackReducerAction,
-  ReducerActionNavigationStackType
-} from "modules/agrovar/types/ReduceNavigationContextTypes";
+  ReducerActionNavigationStackType,
+  NavigationStackReducerAction
+} from "../types/ReduceNavigationContextTypes";
 
 /**
  * A function that handle a dispatch event and returns a

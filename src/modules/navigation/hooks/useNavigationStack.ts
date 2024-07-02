@@ -1,7 +1,7 @@
 import {
   NavigationStackContext,
   NavigationStackDispatchContext
-} from "modules/agrovar/context/NavigationStack";
+} from "modules/navigation/context/NavigationStack";
 import { useContext } from "react";
 
 export function useNavigationStack() {

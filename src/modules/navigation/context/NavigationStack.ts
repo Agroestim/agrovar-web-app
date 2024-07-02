@@ -1,7 +1,7 @@
 import {
   NavigationStackContextType,
   NavigationStackDispatchContextType
-} from "modules/agrovar/types/NavigationStackContextTypes";
+} from "modules/navigation/types/NavigationStackContextTypes";
 import { createContext } from "react";
 
 export const NavigationStackContext = createContext<

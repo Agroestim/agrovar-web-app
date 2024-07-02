@@ -1,5 +1,4 @@
 import { LoaderComponent } from "@components/common/Loader";
-import { useOnSubmitHandler } from "@hooks/useOnSubmitHandler";
 import { useDashboardWorkflowPreflightQuery } from "@hooks/graphql/usePreflightQuery";
 import { useOnChangeHandler } from "@hooks/useOnChangeHandler";
 import { useOnSelectChangeHandler } from "@hooks/useOnSelectChangeHandler";
@@ -20,7 +19,6 @@ export function VarietyComparation() {
     off: ComparisonModeType.COMPARE_BY_LOCATION,
   });
 
-  const { handleFormOnSubmit } = useOnSubmitHandler();
   const { data, loading, error } = useDashboardWorkflowPreflightQuery({
     limit: 10,
     cursor: "",
@@ -35,7 +33,7 @@ export function VarietyComparation() {
 
   return (
     <>
-      <form onSubmit={handleFormOnSubmit}>
+      <form>
         <h1>Comparador de variedades</h1>
         <hr />
 
@@ -91,7 +89,7 @@ export function VarietyComparation() {
             name="operation-mode-by-variety"
             id="operation-mode-by-variety"
             onChange={handleOnChange}
-            checked={isChecked("operation-mode-by-variety")}
+            checked={isChecked(ComparisonModeType.COMPARE_BY_VARIETY)}
           />
           <label htmlFor="operation-mode-by-variety">
             Filtrar por variedad
@@ -102,36 +100,36 @@ export function VarietyComparation() {
             name="operation-mode-by-location"
             id="operation-mode-by-location"
             onChange={handleOnChange}
-            checked={isChecked("operation-mode-by-location")}
+            checked={isChecked(ComparisonModeType.COMPARE_BY_LOCATION)}
           />
           <label htmlFor="operation-mode-by-location">
             Filtrar por localidad
           </label>
         </fieldset>
 
-        {isChecked("operation-mode-by-location") ? (
-          <fieldset name="location-fieldset">
-            <legend>Localidad</legend>
+        <fieldset name="location-fieldset">
+          <legend aria-disabled={!isChecked(ComparisonModeType.COMPARE_BY_LOCATION)}>Localidad</legend>
 
-            <select 
-              name="location-selector" 
-              id="location-selector" 
-              required 
-              multiple
-            >
-              <option value={0} key={0}>
-                {"Seleccione una opción"}
-              </option>
-              {locationOptions?.options.map((entry) => {
-                return (
-                  <option key={entry.id} value={entry.id}>
-                    {entry.regionName}
-                  </option>
-                );
-              })}
-            </select>
-          </fieldset>
-        ) : null}
+          <select
+            aria-disabled={!isChecked(ComparisonModeType.COMPARE_BY_LOCATION)}
+            disabled={!isChecked(ComparisonModeType.COMPARE_BY_LOCATION)}
+            name="location-selector"
+            id="location-selector"
+            required
+            multiple
+          >
+            <option value={0} key={0}>
+              {"Seleccione una opción"}
+            </option>
+            {locationOptions?.options.map((entry) => {
+              return (
+                <option key={entry.id} value={entry.id}>
+                  {entry.regionName}
+                </option>
+              );
+            })}
+          </select>
+        </fieldset>
         <fieldset name="form-selector" className="grid">
           <input type="submit" value="Enviar" />
           <input type="reset" value="Reestablecer" />

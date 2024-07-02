@@ -1,6 +1,5 @@
-import Stack from "modules/agrovar/providers/NavigationStack";
 
-export function TestStackNavigation() {
+export function StackNavigationDemo() {
   return (
     <>
       <Stack>

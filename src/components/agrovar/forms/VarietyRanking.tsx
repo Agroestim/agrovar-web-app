@@ -1,12 +1,10 @@
 import { LoaderComponent } from "@components/common/Loader";
-import { useOnSubmitHandler } from "@hooks/useOnSubmitHandler";
 import { useDashboardWorkflowPreflightQuery } from "@hooks/graphql/usePreflightQuery";
 
 /**
  *
  */
 export function VarietyRanking() {
-  const { handleFormOnSubmit } = useOnSubmitHandler();
   const { data, loading, error } = useDashboardWorkflowPreflightQuery({
     limit: 10,
     cursor: "",
@@ -18,7 +16,7 @@ export function VarietyRanking() {
 
   return (
     <>
-      <form onSubmit={handleFormOnSubmit}>
+      <form>
         <h1>Ranking por localidad</h1>
         <hr />
 

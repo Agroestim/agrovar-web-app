@@ -1,11 +1,8 @@
-import { NavigationStackContext } from "modules/agrovar/context/NavigationStack";
-import { useNavigationStack } from "modules/agrovar/hooks/useNavigationStack";
+import { NavigationStackContext } from "modules/navigation/context/NavigationStack";
 import { ChildrenPropType } from "modules/agrovar/types/ChildrenPropType";
-import {
-  ScreenPropsType,
-  StackPropsType,
-} from "modules/agrovar/types/NavigationStackTypes";
 import { useEffect } from "react";
+import { useNavigationStack } from "../hooks/useNavigationStack";
+import { StackPropsType, ScreenPropsType } from "../types/NavigationStackTypes";
 
 /**
  *

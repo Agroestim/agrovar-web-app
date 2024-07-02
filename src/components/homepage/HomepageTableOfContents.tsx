@@ -3,17 +3,15 @@ export function HomepageTableOfContentsComponent() {
     <aside id="ga-table-of-contents">
       <nav>
         <details open data-disabled-closure>
-          <summary>Contenidos</summary>
+          <summary>
+            {"Contenidos"}
+          </summary>
           <ul>
             <li>
-              <a href="#" className="secondary">
-                Primer titulo
-              </a>
+              {"Primer titulo"}
             </li>
             <li>
-              <a href="#" className="secondary">
-                Segundo titulo
-              </a>
+              {"Segundo titulo"}
             </li>
           </ul>
         </details>

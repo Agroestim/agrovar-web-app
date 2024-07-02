@@ -7,7 +7,7 @@ export function DashboardBodyComponent() {
   const { state } = useContext(UserWorkflowContext);
 
   const currentViewState =
-    state.stack.at(-1)?.operation ?? DashboardOperationsType.COVER_OP;
+    state.stack[-1]?.operation ?? DashboardOperationsType.COVER_OP;
 
   return (
     <>
