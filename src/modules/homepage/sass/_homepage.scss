@@ -1,0 +1,25 @@
+@use "@picocss/pico/scss/pico";
+
+#{pico.$semantic-root-element} > main.g-homepage {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "body body body";
+  grid-template-columns: 10.5rem 1fr 10.5rem;
+  grid-template-rows: auto 1fr;
+
+  row-gap: 4rem;
+  column-gap: 4rem;
+
+  & div#ga-body {
+    grid-area: body;
+  }
+
+  & aside#ga-menu {
+    grid-area: menu;
+  }
+}
+
+main.g-homepage aside li {
+  padding: calc(var(--pico-nav-element-spacing-vertical) * 0.25) 0;
+}

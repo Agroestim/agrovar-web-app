@@ -1,7 +1,12 @@
-.flex {
+.d-flex {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+
+  hr {
+    width: 0;
+    margin: 0 var(--pico-typography-spacing-vertical) 0;
+  }
 }

@@ -1,0 +1,41 @@
+@use "@picocss/pico/scss/pico";
+
+#{pico.$semantic-root-element} > main.g-dashboard {
+  height: 100%;
+
+  display: grid;
+  grid-template-areas:
+    "aside-navigation head aside-preview"
+    "aside-navigation body aside-preview"
+    "aside-navigation body aside-preview";
+  grid-template-columns: 7rem 10fr 10fr;
+  grid-template-rows: auto 1fr;
+
+  row-gap: 4rem;
+  column-gap: 4rem;
+
+  position: relative;
+
+  & aside#ga-dashboard-navigation {
+    grid-area: aside-navigation;
+    position: static;
+  }
+
+  & div#ga-dashboard-main {
+    grid-area: body;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+  }
+
+  & div#ga-dashboard-header {
+    grid-area: head;
+    position: static;
+  }
+
+  & aside#ga-dashboard-preview {
+    grid-area: aside-preview;
+    position: static;
+  }
+}

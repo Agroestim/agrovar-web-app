@@ -2,29 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Router, Route, Switch } from "wouter";
 
-import App from "@components/app/App";
-import HomePageComponent from "@components/homepage/Homepage";
-import DashboardComponent from "@components/agrovar/Dashboard";
-import DefaultErrorComponent from "@components/error/Defaults";
-
 import "./index.scss";
+
+import { DashboardPage } from "modules/agrovar/pages/Dashboard";
+import { HomePage } from "modules/homepage/pages/Homepage";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App>
-      <Router base="">
-        <Switch>
-          <Route path="/">
-            <HomePageComponent />
-          </Route>
-          <Router base="/app">
-            <DashboardComponent />
-          </Router>
-          <Route path="*">
-            <DefaultErrorComponent />
-          </Route>
-        </Switch>
-      </Router>
-    </App>
+    <Router>
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/app" component={DashboardPage} />
+      </Switch>
+    </Router>
   </React.StrictMode>
 );

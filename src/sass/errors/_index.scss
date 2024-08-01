@@ -1,9 +1,0 @@
-@use "@picocss/pico/scss/pico";
-
-#{pico.$semantic-root-element} > main.g-errorpage {
-  hgroup {
-    h1 {
-      padding: 0 0 1rem 0;
-    }
-  }
-}
