@@ -4,7 +4,7 @@ import { Router, Route, Switch } from "wouter";
 
 import "./index.scss";
 
-import { DashboardPage } from "modules/agrovar/pages/Dashboard";
+import { DashboardPage } from "modules/agrovar/views/Dashboard";
 import { HomePage } from "modules/homepage/pages/Homepage";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

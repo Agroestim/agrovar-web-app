@@ -5,10 +5,10 @@
 
   display: grid;
   grid-template-areas:
-    "aside-navigation head aside-preview"
-    "aside-navigation body aside-preview"
-    "aside-navigation body aside-preview";
-  grid-template-columns: 7rem 10fr 10fr;
+    "aside-navigation body"
+    "aside-navigation body"
+    "bottom bottom";
+  grid-template-columns: 2fr 10fr;
   grid-template-rows: auto 1fr;
 
   row-gap: 4rem;
@@ -19,6 +19,9 @@
   & aside#ga-dashboard-navigation {
     grid-area: aside-navigation;
     position: static;
+    padding: var(--pico-spacing);
+    border-radius: var(--pico-border-radius);
+    box-shadow: var(--pico-box-shadow);
   }
 
   & div#ga-dashboard-main {
@@ -29,13 +32,21 @@
     position: absolute;
   }
 
-  & div#ga-dashboard-header {
-    grid-area: head;
+  & div#ga-dashboard-bottom {
+    grid-area: bottom;
     position: static;
-  }
 
-  & aside#ga-dashboard-preview {
-    grid-area: aside-preview;
-    position: static;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    gap: var(--pico-spacing);
+    flex-direction: row;
+    flex-flow: row;
+
+    & hr {
+      height: 1em;
+      border: solid 1px var(--pico-contrast);
+    }
   }
 }

@@ -1,14 +1,4 @@
-import {
-  ApolloClient,
-  FieldFunctionOptions,
-  FieldMergeFunction,
-  HttpLink,
-  InMemoryCache
-} from "@apollo/client";
-import { CacheFunctionsPolicy } from "../types/GraphqlCachePolicies";
-import { CursorType } from "../types/PaginationCursorType";
-import { Pagination } from "./pagination";
-
+import { HttpLink, InMemoryCache } from "@apollo/client";
 export const SERVER_URI = "https://127.0.0.1:8000/api/v1/";
 
 export const CLIENT_NAME = "agrovar-web-app";

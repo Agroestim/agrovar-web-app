@@ -6,22 +6,17 @@
   top: 0;
   z-index: 2;
 
-  // Adding header backgroud color.
   backdrop-filter: blur(1rem);
-  background-color: var(--pico-header-background);
   transition: border-top-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 
-  div {
-    // Adding responsive layout.
-    &.container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    nav ul:last-of-type li:first-child::before {
-      margin-inline: var(--pico-nav-element-spacing-horizontal);
-      border-left: var(--pico-border-width) solid var(--pico-muted-border-color);
-    }
+  & div.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+}
+
+header div.container > nav ul:last-of-type li:first-child::before {
+  margin-inline: var(--pico-nav-element-spacing-horizontal);
+  border-left: var(--pico-border-width) solid var(--pico-muted-border-color);
 }

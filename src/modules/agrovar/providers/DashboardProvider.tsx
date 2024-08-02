@@ -11,7 +11,7 @@ import {
   WorkflowReducerType
 } from "../types/WorkflowTypes";
 import { useWorkflowContext } from "../hooks/useWorkflowContext";
-import { DashboardCoverView } from "../views/CoverView";
+import { DashboardCoverView } from "../views/DashboardCover";
 import { LoadingView } from "modules/commons/view/LoadingView";
 import { VarietyComparationForm } from "../components/forms/VarietyComparation";
 

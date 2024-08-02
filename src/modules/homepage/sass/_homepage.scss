@@ -11,15 +11,11 @@
   row-gap: 4rem;
   column-gap: 4rem;
 
+  & hgroup#ga-header {
+    grid-area: header;
+  }
+
   & div#ga-body {
     grid-area: body;
   }
-
-  & aside#ga-menu {
-    grid-area: menu;
-  }
-}
-
-main.g-homepage aside li {
-  padding: calc(var(--pico-nav-element-spacing-vertical) * 0.25) 0;
 }

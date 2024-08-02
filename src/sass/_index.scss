@@ -7,6 +7,9 @@
 @use "./common";
 @use "./layout";
 
+@use "/src/modules/agrovar/sass/index.scss" as agrovar;
+@use "/src/modules/homepage/sass/index.scss" as homepage;
+
 :root {
   #{pico.$css-var-prefix}font-family: "Zilla Slab", sans-serif, system-ui;
   #{pico.$css-var-prefix}font-weight: 400;

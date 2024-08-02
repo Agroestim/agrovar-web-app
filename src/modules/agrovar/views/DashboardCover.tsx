@@ -3,8 +3,8 @@ export function DashboardCoverView() {
     <>
       <div id="ga-dashboard-main">
         <hgroup>
-          <h1>{"mensaje de bienvenida"}</h1>
-          <p>{"Alguna descripción detallada de la aplicación y su uso"}</p>
+          <h1>{"Incomming message"}</h1>
+          <p>{"A complete description"}</p>
         </hgroup>
       </div>
     </>

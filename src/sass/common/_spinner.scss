@@ -1,22 +1,6 @@
 @use "@picocss/pico/scss/colors";
 
-hgroup.loader {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr;
-
-  & > *:not(hr) {
-    justify-self: center;
-  }
-
-  & > p {
-    color: var(--pico-secondary);
-    font-weight: 600;
-    text-align: center;
-  }
-}
-
-span.loading {
+span.spinner {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -26,10 +10,10 @@ span.loading {
   background: #{colors.$white};
   box-shadow: -24px 0 #{colors.$white}, 24px 0 #{colors.$white};
   box-sizing: border-box;
-  animation: shadowPulse 2s linear infinite;
+  animation: spinnerAnimation 2s linear infinite;
 }
 
-@keyframes shadowPulse {
+@keyframes spinnerAnimation {
   33% {
     background: #{colors.$white};
     box-shadow: -24px 0 #{colors.$slate-350}, 24px 0 #{colors.$white};

@@ -1,23 +1,25 @@
-import AsideNavigationComponent from "../components/AsideNavigation";
-import AsidePreviewComponent from "../components/AsidePreview";
+import DashboardAsideNavigationComponent from "../components/DashboardNavigation";
+import { DashboardFooterComponent } from "../components/DashboardFooter";
+import { DashboardHeaderComponent } from "../components/DashboardHeader";
 import {
   DashboardComponentProvider,
   DashboardContextProvider
 } from "../providers/DashboardProvider";
 import { ApolloGrapqhlProvider } from "../providers/GrapqhlProvider";
-
-import "sass/_index.scss";
+import { DashboardBottomComponent } from "../components/DashboardBottom";
 
 export function DashboardPage() {
   return (
     <>
       <ApolloGrapqhlProvider>
         <DashboardContextProvider>
+          <DashboardHeaderComponent />
           <main className="container g-dashboard" id="g-dashboard">
-            <AsideNavigationComponent />
-            <AsidePreviewComponent />
+            <DashboardAsideNavigationComponent />
             <DashboardComponentProvider />
+            <DashboardBottomComponent />
           </main>
+          <DashboardFooterComponent />
         </DashboardContextProvider>
       </ApolloGrapqhlProvider>
     </>

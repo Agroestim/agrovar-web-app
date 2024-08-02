@@ -1,7 +1,7 @@
 import { useWorkflowSwitchHandler } from "../hooks/useWorkflowSwitchHandler";
 import { WorkflowOperations } from "../types/WorkflowTypes";
 
-export default function AsideNavigationComponent() {
+export default function DashboardAsideNavigationComponent() {
   const { handleOnClick } = useWorkflowSwitchHandler();
   return (
     <>
@@ -17,6 +17,7 @@ export default function AsideNavigationComponent() {
             <ul>
               <li>
                 <button
+                  className="outline outline-secondary"
                   onClick={handleOnClick(WorkflowOperations.ONBOARDING, {})}
                 >
                   {"Portada"}
@@ -30,6 +31,7 @@ export default function AsideNavigationComponent() {
             <ul>
               <li>
                 <button
+                  className="outline outline-secondary"
                   onClick={handleOnClick(
                     WorkflowOperations.VARIETY_COMPARATION,
                     {}
@@ -40,6 +42,7 @@ export default function AsideNavigationComponent() {
               </li>
               <li>
                 <button
+                  className="outline outline-secondary"
                   onClick={handleOnClick(
                     WorkflowOperations.LOCATION_RANKING,
                     {}
