@@ -1,38 +1,36 @@
-import { useWorkflowSwitchHandler } from "../hooks/useWorkflowSwitchHandler";
+import { useWorkflowContextMutation } from "../hooks/useWorkflowContextMutation";
 import { WorkflowOperations } from "../types/WorkflowTypes";
 
 export default function DashboardAsideNavigationComponent() {
-  const { handleOnClick } = useWorkflowSwitchHandler();
+  const { handleButtonOnClick } = useWorkflowContextMutation();
   return (
     <>
       <aside id="ga-dashboard-navigation">
         <nav>
-          <hgroup>
-            <h4>{"Controles"}</h4>
-          </hgroup>
-          <hr />
-
           <details>
             <summary>{"Inicio"}</summary>
             <ul>
               <li>
                 <button
                   className="outline outline-secondary"
-                  onClick={handleOnClick(WorkflowOperations.ONBOARDING, {})}
+                  onClick={handleButtonOnClick(
+                    WorkflowOperations.ONBOARDING,
+                    {}
+                  )}
                 >
                   {"Portada"}
                 </button>
               </li>
             </ul>
           </details>
-
+          <hr />
           <details>
             <summary>{"Variedades"}</summary>
             <ul>
               <li>
                 <button
                   className="outline outline-secondary"
-                  onClick={handleOnClick(
+                  onClick={handleButtonOnClick(
                     WorkflowOperations.VARIETY_COMPARATION,
                     {}
                   )}
@@ -43,7 +41,7 @@ export default function DashboardAsideNavigationComponent() {
               <li>
                 <button
                   className="outline outline-secondary"
-                  onClick={handleOnClick(
+                  onClick={handleButtonOnClick(
                     WorkflowOperations.LOCATION_RANKING,
                     {}
                   )}
@@ -53,6 +51,24 @@ export default function DashboardAsideNavigationComponent() {
               </li>
             </ul>
           </details>
+          <hr />
+          <details>
+            <summary>{"Preferencias"}</summary>
+            <ul>
+              <li>
+                <button
+                  className="outline outline-secondary"
+                  onClick={handleButtonOnClick(
+                    WorkflowOperations.OFFBOARDING,
+                    {}
+                  )}
+                >
+                  {"Habilitar caracteristicas"}
+                </button>
+              </li>
+            </ul>
+          </details>
+          <hr />
         </nav>
       </aside>
     </>

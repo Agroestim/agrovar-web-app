@@ -5,10 +5,10 @@ import {
 } from "../types/WorkflowTypes";
 import { useWorkflowContext } from "./useWorkflowContext";
 
-export function useWorkflowSwitchHandler() {
+export function useWorkflowContextMutation() {
   const { dispatch } = useWorkflowContext();
 
-  function handleOnClick(
+  function handleButtonOnClick(
     operation: WorkflowOperations,
     meta: WorkflowOperationMetaType
   ) {
@@ -28,5 +28,5 @@ export function useWorkflowSwitchHandler() {
     return onClick;
   }
 
-  return { handleOnClick };
+  return { handleButtonOnClick };
 }

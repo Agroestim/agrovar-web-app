@@ -1,16 +1,16 @@
-import { HomepageFooterComponent } from "../components/HomepageFooter";
-import { HomepageHeaderComponent } from "../components/HomepageHeader";
+import { ApplicationHeaderComponent } from "modules/commons/components/ApplicationHeader";
 import { HomepageHeroComponent } from "../components/HomepageHero";
+import { ApplicationFooterComponent } from "modules/commons/components/ApplicationFooter";
 
 export function HomePage() {
   return (
     <>
-      <HomepageHeaderComponent />
+      <ApplicationHeaderComponent />
       <main className="container g-homepage">
         <HomepageHeroComponent />
         <div id="body"></div>
       </main>
-      <HomepageFooterComponent />
+      <ApplicationFooterComponent />
     </>
   );
 }

@@ -4,13 +4,15 @@
   $enable-classes: true
 );
 
-@use "./common";
 @use "./layout";
 
 @use "/src/modules/agrovar/sass/index.scss" as agrovar;
 @use "/src/modules/homepage/sass/index.scss" as homepage;
 
-:root {
-  #{pico.$css-var-prefix}font-family: "Zilla Slab", sans-serif, system-ui;
-  #{pico.$css-var-prefix}font-weight: 400;
+:root[data-theme="light"] {
+  --pico-progress-color: #88bd22;
+}
+
+:root[data-theme="dark"] {
+  --pico-progress-color: #68921a;
 }

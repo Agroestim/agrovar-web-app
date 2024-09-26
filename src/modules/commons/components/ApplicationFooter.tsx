@@ -1,4 +1,4 @@
-export function HomepageFooterComponent() {
+export function ApplicationFooterComponent() {
   return (
     <>
       <footer>

@@ -1,6 +1,6 @@
 import { useThemeSwitch } from "../hooks/useThemeSwitch";
 
-export function SwitchThemeButtonComponent() {
+export function AppThemSwitchComponent() {
   const { handleSwitchAction, themeState } = useThemeSwitch();
 
   return (

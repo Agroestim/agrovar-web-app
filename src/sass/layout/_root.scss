@@ -7,3 +7,9 @@
   min-height: 100vh;
   position: relative;
 }
+
+:root {
+  #{pico.$css-var-prefix}font-family: "Zilla Slab", sans-serif, system-ui;
+  #{pico.$css-var-prefix}font-weight: 400;
+  #{pico.$css-var-prefix}font-size: 1.05rem;
+}

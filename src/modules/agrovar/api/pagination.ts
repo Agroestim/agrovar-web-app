@@ -1,4 +1,4 @@
-import { CursorType } from "../types/PaginationCursorType";
+import { Cursor } from "../types/GraphqlPaginationTypes";
 
 /**
  * An utility class for pagination cursor encoding and decoding.
@@ -12,7 +12,7 @@ export class Pagination {
    * @param cursor A decoded cursor.
    * @returns true then the cursor is valid, false otherwise.
    */
-  public static isValidCursor(cursor: CursorType): boolean {
+  public static isValidCursor(cursor: Cursor): boolean {
     const validCursorFields = Object.keys(cursor).map(
       (key) => key in Pagination.VALID_CURSOR_FIELDS
     );
@@ -33,7 +33,7 @@ export class Pagination {
    * @returns An encoded cursor object.
    * @throws {Error} when the cursor argument given is not valid.
    */
-  public static encodeCursor(cursor: CursorType): string {
+  public static encodeCursor(cursor: Cursor): string {
     if (!Pagination.isValidCursor(cursor)) throw new Error();
 
     const serialized_cursor = JSON.stringify(cursor);
@@ -47,7 +47,7 @@ export class Pagination {
    * @returns A decoded cursor object.
    * @throws {Error} when the cursor argument given is not valid.
    */
-  public static decodeCursor(cursor: string): CursorType {
+  public static decodeCursor(cursor: string): Cursor {
     const deserialized_cursor = JSON.parse(atob(cursor));
 
     if (!Pagination.isValidCursor(deserialized_cursor)) throw new Error();

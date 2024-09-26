@@ -11,8 +11,8 @@
   grid-template-columns: 2fr 10fr;
   grid-template-rows: auto 1fr;
 
-  row-gap: 4rem;
-  column-gap: 4rem;
+  row-gap: 2rem;
+  column-gap: 2rem;
 
   position: relative;
 
@@ -30,9 +30,12 @@
     height: 100%;
     overflow: auto;
     position: absolute;
+    padding: var(--pico-spacing);
+    border-radius: var(--pico-border-radius);
+    box-shadow: var(--pico-box-shadow);
   }
 
-  & div#ga-dashboard-bottom {
+  & article#ga-dashboard-bottom {
     grid-area: bottom;
     position: static;
 

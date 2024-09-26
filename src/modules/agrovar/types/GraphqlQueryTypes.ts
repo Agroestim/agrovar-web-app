@@ -1,36 +1,43 @@
-import { TypedDocumentNode } from "@apollo/client";
-import { PaginatedOptions, PreflightOptionsWrapper } from "./GraphqlTypes";
+import {
+  PaginatedDocumentNode,
+  PaginatedOptions
+} from "./GraphqlPaginationTypes";
 
-export interface PreflightVarietyOptionsQuery {
+export interface VarietyOptionsQueryType {
   id: number;
   tradename: string;
   varianName: string;
 }
 
-export interface PreflightLocationOptionsQuery {
+export interface LocationOptionsQueryType {
   id: number;
   regionName: string;
 }
 
-export interface PreflightCampaignOptionsQuery {
+export interface CampaignOptionsQueryType {
   id: number;
   reference: string;
   dateOrigin: string;
   locationOrigin: string;
 }
 
-export type PreflightDashboardOptions = PreflightOptionsWrapper<{
-  varietyOptions?: PaginatedOptions<PreflightVarietyOptionsQuery>;
-  locationOptions?: PaginatedOptions<PreflightLocationOptionsQuery>;
-  campaignOptions?: PaginatedOptions<PreflightCampaignOptionsQuery>;
+/**
+ * This is a final type which represents a set of varieties.
+ */
+export type VarietyOptionsPreflightQuery = PaginatedDocumentNode<{
+  varietyOptions?: PaginatedOptions<VarietyOptionsQueryType>;
 }>;
 
-export interface TypedPreflightVariables {
-  limit: number;
-  cursor: string;
-}
+/**
+ * This is a final type which represents a set of locations.
+ */
+export type LocationOptionsPreflightQuery = PaginatedDocumentNode<{
+  locationOptions?: PaginatedOptions<LocationOptionsQueryType>;
+}>;
 
-export type TypedPreflightOptions = TypedDocumentNode<
-  PreflightDashboardOptions,
-  TypedPreflightVariables
->;
+/**
+ * This is a final type which represents a set of campaigns.
+ */
+export type CampaignOptionsPreflightQuery = PaginatedDocumentNode<{
+  campaignOptions?: PaginatedOptions<CampaignOptionsQueryType>;
+}>;

@@ -21,7 +21,11 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Scoping packages */
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["./modules/*"],
+      "@assets/*": ["./assets/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

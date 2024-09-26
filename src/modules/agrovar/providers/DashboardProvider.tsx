@@ -12,8 +12,8 @@ import {
 } from "../types/WorkflowTypes";
 import { useWorkflowContext } from "../hooks/useWorkflowContext";
 import { DashboardCoverView } from "../views/DashboardCover";
-import { LoadingView } from "modules/commons/view/LoadingView";
-import { VarietyComparationForm } from "../components/forms/VarietyComparation";
+import { VarietyComparisonForm } from "../components/forms/VarietyComparison";
+import { LocationRankingForm } from "../components/forms/LocationRanking";
 
 function dashboardContextReducer(
   prevState: WorkflowContextType,
@@ -61,18 +61,18 @@ export function DashboardComponentProvider() {
       return <DashboardCoverView />;
 
     case WorkflowOperations.OFFBOARDING:
-      return <></>;
+      return <>Offboarding page</>;
 
     case WorkflowOperations.LOADING:
-      return <LoadingView />;
+      return <progress />;
 
     case WorkflowOperations.ERROR:
-      return <LoadingView />;
+      return <progress />;
 
     case WorkflowOperations.VARIETY_COMPARATION:
-      return <VarietyComparationForm />;
+      return <VarietyComparisonForm />;
 
     case WorkflowOperations.LOCATION_RANKING:
-      return <></>;
+      return <LocationRankingForm />;
   }
 }

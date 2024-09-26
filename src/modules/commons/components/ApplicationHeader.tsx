@@ -1,36 +1,39 @@
-import { SwitchThemeButtonComponent } from "modules/commons/view/SwitchTheme";
 import { Link } from "wouter";
+import { AppThemSwitchComponent } from "./ApplicationThemeSwitch";
 
-export function DashboardHeaderComponent() {
+export function ApplicationHeaderComponent() {
   return (
     <header>
       <div className="container">
         <Link to="/" aria-label="Awesome homepage">
           <picture>
             <source
-              srcSet="agrovar-brand-logo-sm.svg"
-              type="image/svg+xml"
-              media="(min-width:576px)"
+              srcSet="agrovar-brand-logo-sm.png"
+              type="image/png"
+              media="(max-width:576px)"
             />
             <source
-              srcSet="agrovar-brand-logo-md.svg"
-              type="image/svg+xml"
-              media="(min-width:768px)"
+              srcSet="agrovar-brand-logo-md.png"
+              type="image/png"
+              media="(max-width:768px)"
             />
             <source
-              srcSet="agrovar-brand-logo-lg.svg"
-              type="image/svg+xml"
+              srcSet="agrovar-brand-logo-lg.png"
+              type="image/png"
               media="(min-width:1024px)"
             />
-            <img
-              src="agrovar-brand-logo-std.svg"
-              alt="AGROVAR_BRAND_LOGO_SVG"
+
+            <source
+              srcSet="agrovar-brand-logo-std.png"
+              type="image/png"
+              media="(min-width:1900px)"
             />
+            <img src="/agrovar-brand-logo-std.png" alt="AGROVAR_BRAND_LOGO" />
           </picture>
         </Link>
 
         <nav>
-          <ul className="rule-always-show">
+          <ul id="app-links">
             <li>
               <Link to="/app" className="contrast">
                 Agrovar
@@ -93,7 +96,7 @@ export function DashboardHeaderComponent() {
             </li>
 
             <li>
-              <SwitchThemeButtonComponent />
+              <AppThemSwitchComponent />
             </li>
           </ul>
         </nav>
